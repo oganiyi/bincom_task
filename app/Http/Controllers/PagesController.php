@@ -57,7 +57,8 @@ class PagesController extends Controller
             'entered_by' => 'required|string',
         ]);
 
-        $exists = AnnouncedPuResult::where('party_abbreviation', $request->a)->where('polling_unit_uniqueid', $request->polling_unit)->exists();
+        // since the first 4 letters of the party is stored in the announced polling unit result, let's extract using substr
+        $exists = AnnouncedPuResult::where('party_abbreviation', substr($request->party, 0, 4))->where('polling_unit_uniqueid', $request->polling_unit)->exists();
         
         if($exists) {
             return redirect()->back()->with('message', 'This party in this polling unit has already been recorded');

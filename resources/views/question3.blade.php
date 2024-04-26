@@ -54,6 +54,10 @@
 
 
         <input class="col-md-4 mx-auto btn btn-success mt-2" type="submit" value="Get">
+        @if (session('message'))
+        <h3 class="col-12 text-danger">{{ session('message') }}</h3>
+        @endif
+
         @if (session('success'))
         <h3 class="col-12 text-success">{{ session('success') }}</h3>
         @endif
