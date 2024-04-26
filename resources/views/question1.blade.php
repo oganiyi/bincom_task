@@ -55,11 +55,11 @@
                                         @php
                                             $total += $eachParty->party_score
                                         @endphp
-                                        <li>- {{ $eachParty->party_abbreviation }} - {{ $eachParty->party_score }}</li>
+                                        <li>- {{ $eachParty->party_abbreviation }} - {{ number_format($eachParty->party_score) }}</li>
                                         @endforeach
                                         </ul>
                                 </td>
-                                <td>{{ $total }}</td>
+                                <td>{{ number_format($total) }}</td>
                             </tr>
                         @endforeach
                     </tbody>
